@@ -7,7 +7,7 @@
   </head>
 
   <style>
-    .btn {
+    /* .btn {
       color: #00ffff;
       padding: 10px 10px;
       background-color: black;
@@ -23,6 +23,86 @@
     .gambar {
       width: 10%;
       height: 10%;
+    } */
+    /* Layout & Halaman Utama */
+    body {
+      background-color: #121212; /* Latar belakang gelap total */
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    /* Kotak Pembungkus Setiap Fitur */
+    div,
+    .container-2 {
+      background: #1e1e1e; /* Warna card abu-abu gelap */
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Bayangan lebih gelap */
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    /* Desain Tombol yang Konsisten (Tema Neon Blue) */
+    .btn {
+      color: #00ffff; /* Teks sian/aqua */
+      background-color: transparent;
+      border: 2px solid #00ffff;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 15px auto;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      color: #121212; /* Teks berubah gelap saat hover */
+      background-color: #00ffff; /* Tombol terisi warna neon */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4); /* Efek glow neon */
+    }
+
+    /* Tipografi & Judul */
+    h1 {
+      font-size: 20px;
+      color: #e0e0e0; /* Teks putih keabu-abuan agar tidak silau */
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .judulBerubah {
+      color: #ff5252; /* Merah neon cerah agar kontras di layar gelap */
+      font-weight: 700;
+    }
+
+    /* Desain Gambar */
+    .gambar,
+    .container-2 img,
+    #container img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      margin: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      border: 1px solid #333; /* Border tipis agar gambar gelap tidak menyatu dengan background */
+    }
+
+    /* Khusus untuk area tambah gambar terus-menerus */
+    #container {
+      /* background: #2a2415; Versi gelap dari beige lembut bawaan kode kamu */
+      box-shadow: none;
+      padding: 10px;
     }
   </style>
 
@@ -33,22 +113,74 @@
     <button id="btn-gambar" class="btn">Ganti Gambar</button>
     <img class="gambar" src="./apel.webp" alt="" />
 
+    <div>
+      <h1>Tambah secara terus menerus</h1>
+      <button class="btn" id="btn-nambah">tambah gambar</button>
+      <div id="container"></div>
+    </div>
+    <!-- syarat agar btn tambah gambar bisa nambah element di container secara terus menerus menggunakan innerHtml itu, btn nya tidak boleh ada di dalam containner (contoh kasus)-->
+
+    <div>
+      <h1>Click Muncul, Hilang, dan seterusnya</h1>
+      <button class="btn" id="btn-muncul-hilang">apa Hayo</button>
+      <div class="container-2"></div>
+    </div>
+
     <script>
       const btn = document.querySelector(".btn");
       const judul = document.querySelector("#judul");
       const btnGambar = document.querySelector("#btn-gambar");
       const gambar = document.querySelector(".gambar");
-
+      const container = document.querySelector("#container");
+      const buttonNambah = document.querySelector("#btn-nambah");
+      const btnHilangMuncul = document.querySelector("#btn-muncul-hilang");
+      const container2 = document.querySelector(".container-2");
+      // Ganti warna teks dan isi teks
       btn.addEventListener("click", function () {
-        judul.textContent = "Tombol Berhasil di klik";
-        judul.className = "judulBerubah";
+        // judul.textContent = "Tombol Berhasil di klik"; // ganti isi content
+        // judul.className = "judulBerubah"; //tambahkan class ke element/document/object dalam html
 
-        // click nambah
+        if (judul.textContent === "Belum Diklik") {
+          judul.textContent = "Tombol Berhasil di klik"; // ganti isi content
+          judul.className = "judulBerubah"; //tambahkan class ke element/document/object dalam html
+        } else {
+          judul.textContent = "Belum Diklik"; // ganti isi content
+          judul.className = ""; //tambahkan class ke element/document/object dalam html
+        }
       });
 
+      // Ganti gambar
       btnGambar.addEventListener("click", () => {
-        gambar.src =
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcXl7VyzPJ3u5jya0J0H7FvHrvytES7bkvF98NBlWHdCtAMqEMo47LGkyx&s=10";
+        // gambar.src =
+        //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcXl7VyzPJ3u5jya0J0H7FvHrvytES7bkvF98NBlWHdCtAMqEMo47LGkyx&s=10";
+
+        // Cek link (src) gambar saat ini menggunakan fungsi .includes() untuk mendeteksi nama file gambarnya.
+        if (gambar.src.includes("apel.webp")) {
+          // Jika iya, ganti ke gambar internet
+          gambar.src =
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcXl7VyzPJ3u5jya0J0H7FvHrvytES7bkvF98NBlWHdCtAMqEMo47LGkyx&s=10";
+        } else {
+          // Jika bukan, kembalikan ke gambar apel semula
+          gambar.src = "./apel.webp";
+        }
+      });
+
+      // Nambah gambar terus
+      buttonNambah.addEventListener("click", () => {
+        container.innerHTML += `<img src='./apel.webp' alt='foto'/>`;
+        console.log("nambah");
+      });
+      // console.log(buttonNambah + container);
+
+      // click hilang nambah
+      btnHilangMuncul.addEventListener("click", () => {
+        // console.log(btnHilangMuncul);
+        // console.log(container2);
+        if (container2.innerHTML === "") {
+          container2.innerHTML += `<img  src="./apel.webp"/>`;
+        } else {
+          container2.innerHTML = ""; // harus pake oprator = karena kalo pakai += artinya nambah dan simpan tanpa mengurangi/menghilangkan innerhtml sebelum nya
+        }
       });
     </script>
   </body>
