@@ -87,8 +87,7 @@ Hampir semua nilai di JavaScript bernilai **truthy** (`true`), **kecuali** nilai
 - **Parameter:** Variabel yang didefinisikan saat membuat/mendeklarasikan function. Parameter diperlakukan mirip seperti variabel di dalam body function.
 - **Argument:** Nilai aktual yang diberikan/diteruskan dalam tanda kurung `()` saat dipanggil/dieksekusi.
 - **Default Parameter:** Nilai bawaan yang diberikan pada parameter jika argument tidak diisi saat pemanggilan.
-  - _Contoh:_ `function kaliTiga(number = 3)` $
-ightarrow$ `3` adalah default parameter.
+  - _Contoh:_ `function kaliTiga(number = 3)` → `3` adalah default parameter.
 
 ### Return Statement
 
@@ -117,12 +116,19 @@ Keduanya merupakan tipe data kompleks (non-primitif).
 - Kumpulan pasangan **key-value** (_property_ dan _value_).
 - Data dalam object **tidak terurut**.
 
-### B. Array
+### B. Array & Method Bawaannya
 
 - Struktur data spesial yang digunakan untuk menyimpan kumpulan data yang **terurut**.
 - Bersifat **dinamis** (ukurannya dapat berubah secara otomatis).
-- Di JavaScript, **Array sebenarnya merupakan tipe data Object**.
-- Mengecek tipe data array menggunakan `typeof` akan mengembalikan `'object'`.
+- Di JavaScript, **Array sebenarnya merupakan tipe data Object**. Mengecek tipe data array menggunakan `typeof` akan mengembalikan `'object'`.
+
+#### Method Manipulasi Array:
+
+- **`reverse()`** — Mengembalikan / membalikkan urutan nilai array.
+- **`sort()`** — Mengurutkan nilai array, secara bawaan diurutkan dari A ke Z.
+- **`map()`** — Mengubah / memodifikasi setiap elemen array lalu mengembalikannya menjadi array baru.
+- **`filter()`** — Menyaring elemen array berdasarkan kondisi tertentu lalu mengembalikannya menjadi array baru.
+- **`join(pemisah)`** — Menggabungkan seluruh elemen array menjadi sebuah teks/string tunggal menggunakan karakter pemisah tertentu.
 
 ---
 
