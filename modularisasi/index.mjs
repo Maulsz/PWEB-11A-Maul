@@ -1,6 +1,6 @@
 // Named IMport / di panggil secara eksplisit
 import { cekStatusKelas } from "./kelas.mjs";
-// default iport
+// default import
 import fun from "./kelas.mjs";
 // Named import Untuk Variable
 import { name, age, isMarried } from "./user.mjs";
