@@ -1,6 +1,8 @@
 import { sapa } from "./config.mjs";
 import { rumusFisikaSederhana } from "./config.mjs";
 
+console.info("====== ARRAY ======");
+
 // Panggil/Akses Array Sapan dengan Bracket Notation ([])
 console.log(sapa()[0]("Maul"));
 
@@ -15,9 +17,7 @@ console.log(malam("Maul"));
 
 console.info(pencapaian("Maul", "Juara Tidur Internasional"));
 
-console.info(
-  "============================================================================================",
-);
+console.info("====== OBJECT ======");
 
 // Panngil/Akses Object dengan Dot Notation (.)
 console.log(rumusFisikaSederhana().kecepatan(10, 20));
