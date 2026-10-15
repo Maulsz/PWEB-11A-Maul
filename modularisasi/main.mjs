@@ -22,7 +22,7 @@ console.info(
 // Panngil/Akses Object dengan Dot Notation (.)
 console.log(rumusFisikaSederhana().kecepatan(10, 20));
 
-// Panngil/Akses Object dengan Square Bracket ([])
+// Panngil/Akses Object dengan Square Bracket/ Bracket Notation ([])
 console.log(rumusFisikaSederhana()["jarak"](20, 10));
 
 // Simpan Di Variable Doeloe
